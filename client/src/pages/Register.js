@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Logo } from "../components";
+import { FormRow, Logo } from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
 // global context and useNavigate later
 
@@ -33,19 +33,28 @@ const Register = () => {
         <h3>Login</h3>
 
         {/* name field */}
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            name
-          </label>
+        <FormRow
+          type='text'
+          name='name'
+          value={values.name}
+          handleChange={handleChange}
+        />
 
-          <input
-            type='text'
-            value={values.name}
-            name='name'
-            onChange={handleChange}
-            className='form-input'
-          />
-        </div>
+        {/* email field */}
+        <FormRow
+          type='email'
+          name='email'
+          value={values.email}
+          handleChange={handleChange}
+        />
+
+        {/* email field */}
+        <FormRow
+          type='password'
+          name='password'
+          value={values.password}
+          handleChange={handleChange}
+        />
 
         <button type='submit' className='btn btn-block'>
           submit
