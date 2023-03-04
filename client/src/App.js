@@ -1,7 +1,12 @@
-import "./App.css";
+import Landing from "./pages/Landing";
 
 function App() {
-  return <h1>jobdz</h1>;
+  return (
+    <div>
+      <h1>jobdz</h1>
+      <Landing />
+    </div>
+  );
 }
 
 export default App;
