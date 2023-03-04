@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FormRow, Logo } from "../components";
+import { FormRow, Logo, Alert } from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
 // global context and useNavigate later
 
@@ -8,6 +8,7 @@ const initialState = {
   email: "",
   password: "",
   isMember: true,
+  showAlert: false,
 };
 // if possible prefer local state
 // global state
@@ -31,6 +32,7 @@ const Register = () => {
       <form className='form' onSubmit={onSubmit}>
         <Logo />
         <h3>Login</h3>
+        {values.showAlert && <Alert />}
 
         {/* name field */}
         <FormRow
