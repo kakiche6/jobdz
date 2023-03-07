@@ -1,6 +1,14 @@
-import { DISPLAY_ALERT } from "./actions";
+import { CLEAR_ALERT, DISPLAY_ALERT } from "./actions";
 
 const reducer = (state, action) => {
+  if (action.type === CLEAR_ALERT) {
+    return {
+      ...state,
+      showAlert: false,
+      alertType: "",
+      alertText: "",
+    };
+  }
   if (action.type === DISPLAY_ALERT) {
     return {
       ...state,
