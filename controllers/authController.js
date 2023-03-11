@@ -13,11 +13,20 @@ const register = async (req, res) => {
 
   if (userAlreadyExists) throw new BadRequestError("Email already exists");
 
-  const user = await User.create({ name, email, password });
+  let user = await User.create({ name, email, password });
 
   const token = user.createJWT();
 
-  res.status(StatusCodes.CREATED).json({ user, token });
+  res.status(StatusCodes.CREATED).json({
+    user: {
+      email: user.email,
+      lastName: user.lastName,
+      location: user.location,
+      name: user.name,
+    },
+    token,
+    location: user.location,
+  });
 };
 
 const login = (req, res) => {
