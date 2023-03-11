@@ -6,7 +6,7 @@ import {
   showStats,
   deleteJob,
   updateJob,
-} from "../controllers/jobsController";
+} from "../controllers/jobsController.js";
 
 router.route("/").post(createJob).get(getAllJobs);
 // place before :id
