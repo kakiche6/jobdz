@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FormRow, Logo, Alert } from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
 import { useAppContext } from "../context/appContext";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -15,6 +16,17 @@ const initialState = {
 const Register = () => {
   const [values, setValues] = useState(initialState);
   const { isLoading, showAlert, displayAlert, registerUser } = useAppContext();
+
+  const { user } = useAppContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    }
+  }, [user, navigate]);
 
   // global context and useNavigate later
 
